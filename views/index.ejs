@@ -1,0 +1,32 @@
+<% include partials/header.ejs %>
+<script src="jQuery.js">
+</script>
+<script src="delete.js">
+</script>
+<h1>Add Customer</h1>
+<% if(errors!=undefined){%>
+<ul>
+<% errors.forEach(function(error){ %>
+<li><%= error.msg %></li>
+<%}) %>
+</ul>
+<%}%>
+<form method="POST" action="/users/add"> 
+<lablel>First Name</lablel>
+<input type="text" name="first_name"/>
+</br>
+<lablel>First Name</lablel>
+<input type="text" name="last_name"/>
+</br>
+<lablel>Email</lablel>
+<input type="text" name="email"/>
+</br>
+<input type="submit" value="Submit"/>
+</form>
+<h1><%=title%></h1>
+<ul>
+<% user.forEach(function(name){%>
+<li><%=name.first_name%> <%=name.last_name%>-<a href="/show" class="deleteUser" data-id="<%=name._id %>">Delete</a></li>
+<% }) %>
+</ul>
+<% include partials/footer %>
